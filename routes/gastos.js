@@ -5,5 +5,6 @@ const router = Router();
 
 router.get("/gastos", gastosController.findAll);
 router.post("/gasto", gastosController.create);
+router.delete("/gasto", gastosController.remove);
 
 export default router;
