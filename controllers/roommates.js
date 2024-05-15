@@ -34,8 +34,6 @@ const findAll = async (req, res) => {
     const { roommates } = JSON.parse(
       fs.readFileSync("./data/roommates_data.json", "utf8")
     );
-    // const roommates = todos.map((r) => r.nombre);
-    // console.log(roommates, "quetengo");
     res.status(200).send({ message: "Listado de usuarios", roommates });
   } catch (error) {
     console.log(error);
