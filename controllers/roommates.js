@@ -1,12 +1,16 @@
 import axios from "axios";
 import * as fs from "fs";
+import { v4 as uuidv4 } from "uuid";
+
 const create = async (req, res) => {
   try {
     const result = await axios.get("https://randomuser.me/api");
     const { data } = result;
     const newUser = data.results[0];
+    const id = uuidv4().slice(0, 6);
 
     const roommate = {
+      id,
       nombre: newUser.name.first,
       email: newUser.email,
     };
