@@ -35,7 +35,7 @@ const create = async (req, res) => {
       newGasto,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).send({ message: "Error al procesar la solicitud" });
   }
 };
 
@@ -58,8 +58,38 @@ const remove = async (req, res) => {
   }
 };
 
+const update = async (req, res) => {
+  const { roommate, descripcion, monto } = req.body;
+  const { id } = req.query;
+  try {
+    const { gastos } = JSON.parse(
+      fs.readFileSync("./data/gastos_data.json", "utf8")
+    );
+    const actulizado = gastos.findIndex((g) => g.id === id);
+    if (actulizado !== -1) {
+      gastos[actulizado] = {
+        id,
+        roommate,
+        descripcion,
+        monto,
+      };
+      console.log(descripcion);
+      fs.writeFileSync("./data/gastos_data.json", JSON.stringify({ gastos }));
+      res.status(200).send({
+        message: "Gasto actulizado con exito",
+        gastos,
+      });
+    } else {
+      res.status(404).send({ message: "Gasto no encontrado" });
+    }
+  } catch (error) {
+    res.status(500).send({ message: "Error al procesar la solicitud" });
+  }
+};
+
 export const gastosController = {
   findAll,
   create,
   remove,
+  update,
 };
