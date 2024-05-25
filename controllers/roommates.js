@@ -13,6 +13,9 @@ const create = async (req, res) => {
       id,
       nombre: newUser.name.first,
       email: newUser.email,
+      debe: 0,
+      recibe: 0,
+      total: 0,
     };
 
     const { roommates } = JSON.parse(
