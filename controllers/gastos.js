@@ -30,6 +30,28 @@ const create = async (req, res) => {
 
     gastos.push(newGasto);
     fs.writeFileSync("./data/gastos_data.json", JSON.stringify({ gastos }));
+    const { roommates } = JSON.parse(
+      fs.readFileSync("./data/roommates_data.json", "utf8")
+    );
+    const result = monto / roommates.length;
+    roommates.forEach((rm) => {
+      if (rm.nombre === roommate) {
+        if (!rm.recibe) {
+          rm.recibe = 0;
+        }
+        rm.recibe += monto;
+      } else {
+        if (!rm.debe) {
+          rm.debe = 0;
+        }
+        rm.debe += result;
+      }
+    });
+    fs.writeFileSync(
+      "./data/roommates_data.json",
+      JSON.stringify({ roommates })
+    );
+
     res.status(201).send({
       message: "Gasto creado con exito",
       newGasto,
