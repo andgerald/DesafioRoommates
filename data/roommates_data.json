@@ -1,1 +1,1 @@
-{"roommates":[{"id":"112","nombre":"Eduardo","email":"eduardo.dixon@example.com","debe":0,"recibe":0,"total":0},{"nombre":"Prisha","email":"prisha.shet@example.com"},{"nombre":"Kerim","email":"kerim.pocan@example.com"},{"nombre":"Priska","email":"priska.verbilo@example.com"},{"nombre":"Oskold","email":"oskold.prokopovich@example.com"}]}
+{"roommates":[{"id":"ad6e6f","nombre":"Martin","email":"martin.berry@example.com","debe":4000,"recibe":15000,"total":0},{"id":"5d0fec","nombre":"Priska","email":"priska.onishchak@example.com","debe":15000,"recibe":4000,"total":-7000}]}
