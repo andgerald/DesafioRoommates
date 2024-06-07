@@ -3,13 +3,16 @@ import "dotenv/config";
 import path from "path";
 import roommate from "./routes/roommate.js";
 import gastos from "./routes/gastos.js";
+import cors from "cors";
+
 const { PORT } = process.env;
 const __dirname = path.resolve();
 const app = express();
+const cors = cors();
 
 //SUBO EL PROYECTO PERO ME FALTO PARA TERMINAR NO LOGRE HACER QUE ACTUALIZARA Y TAMPOCO LO DE LOS MONTOS´´
 app.use(express.json());
-
+// app.use(cors);
 app.use(roommate);
 app.use(gastos);
 app.get("/", (req, res) => {
