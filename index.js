@@ -8,16 +8,16 @@ import cors from "cors";
 const { PORT } = process.env;
 const __dirname = path.resolve();
 const app = express();
-const cors = cors();
+// const cors = cors();
 
 //SUBO EL PROYECTO PERO ME FALTO PARA TERMINAR NO LOGRE HACER QUE ACTUALIZARA Y TAMPOCO LO DE LOS MONTOS´´
 app.use(express.json());
 // app.use(cors);
 app.use(roommate);
 app.use(gastos);
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/index.html");
+// });
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto http://localhost:${PORT}`);
